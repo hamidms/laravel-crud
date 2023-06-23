@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/student', 'StudentController@index');
+Route::post('/student/create', 'StudentController@create');
+Route::get('/student/{id}/edit', 'StudentController@edit');
