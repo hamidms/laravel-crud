@@ -21,3 +21,4 @@ Route::get('/student', 'StudentController@index');
 Route::post('/student/create', 'StudentController@create');
 Route::get('/student/{id}/edit', 'StudentController@edit');
 Route::post('/student/{id}/update', 'StudentController@update');
+Route::get('/student/{id}/delete', 'StudentController@delete');
