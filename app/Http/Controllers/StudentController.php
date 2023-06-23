@@ -15,4 +15,15 @@ class StudentController extends Controller
         \App\Models\Student::create($request->all());
         return redirect('/student')->with('sukses', 'Data berhasil diinput');
     }
+
+    public function edit($id) {
+        $student = \App\Models\Student::find($id);
+        return view('student/edit', ['student' => $student]);
+    }
+
+    public function update(Request $request, $id) {
+        $student = \App\Models\Student::find($id);
+        $student->update($request->all());
+        return redirect('/student')->with('sukses', 'Data berhasil diupdate');
+    }
 }
