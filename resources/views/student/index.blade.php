@@ -33,8 +33,8 @@
 										<tbody>
 											@foreach ($students as $student)
                       <tr>
-                        <td>{{$student->nama_depan}}</td>
-                        <td>{{$student->nama_belakang}}</td>
+                        <td><a href="/student/{{$student->id}}/profile">{{$student->nama_depan}}</a></td>
+                        <td><a href="/student/{{$student->id}}/profile">{{$student->nama_belakang}}</a></td>
                         <td>{{$student->jenis_kelamin}}</td>
                         <td>{{$student->agama}}</td>
                         <td>{{$student->alamat}}</td>

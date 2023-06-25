@@ -28,6 +28,11 @@ class StudentController extends Controller
     public function update(Request $request, $id) {
         $student = \App\Models\Student::find($id);
         $student->update($request->all());
+        if ($request->hasFile('avatar')) {
+            $request->file('avatar')->move('images/', $request->file('avatar')->getClientOriginalName());
+            $student->avatar = $request->file('avatar')->getClientOriginalName();
+            $student->save();
+        }
         return redirect('/student')->with('sukses', 'Data berhasil diupdate');
     }
 
@@ -35,5 +40,10 @@ class StudentController extends Controller
         $student = \App\Models\Student::find($id);
         $student->delete($student);
         return redirect('/student')->with('sukses', 'Data berhasil dihapus');
+    }
+
+    public function profile($id) {
+        $student = \App\Models\Student::find($id);
+        return view('student.profile', ['student' => $student]);
     }
 }

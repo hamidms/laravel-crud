@@ -13,7 +13,7 @@
               </h3>
             </div>
             <div class="panel-body">
-              <form action="/student/{{$student->id}}/update" method="POST">
+              <form action="/student/{{$student->id}}/update" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="mb-3">
                   <label for="inputFirstName" class="form-label">Nama Depan</label>
@@ -39,6 +39,11 @@
                   <label for="floatingTextarea2">Alamat</label>
                   <textarea class="form-control" name="alamat" placeholder="Alamat" id="floatingTextarea2" style="height: 100px">{{$student->alamat}}</textarea>
                 </div>
+                <div class="mb-3">
+                  <label for="inputAvatar" class="form-label">Avatar</label>
+                  <input type="file" name="avatar" class="form-control" id="inputAvatar" aria-describedby="emailHelp" placeholder="Avatar" value="{{$student->avatar}}">
+                </div>
+
                 <button type="submit" class="btn btn-warning">Update</button>
                 <a href="/student" class="btn btn-secondary">Kembali</a>
             </form>

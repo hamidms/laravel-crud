@@ -15,6 +15,15 @@ class Student extends Model
         'nama_belakang',
         'jenis_kelamin',
         'agama',
-        'alamat'
+        'alamat',
+        'avatar'
     ];
+
+    public function getAvatar() {
+        if(!$this->avatar) {
+            return asset('images/user.webp');
+        }
+
+        return asset('images/'.$this->avatar);
+    }
 }
