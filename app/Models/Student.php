@@ -16,7 +16,8 @@ class Student extends Model
         'jenis_kelamin',
         'agama',
         'alamat',
-        'avatar'
+        'avatar',
+        'user_id'
     ];
 
     public function getAvatar() {

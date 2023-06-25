@@ -16,7 +16,19 @@ class StudentController extends Controller
     }
 
     public function create(Request $request) {
-        \App\Models\Student::create($request->all());
+        // Insert ke Table User
+        $user = new  \App\Models\User;
+        $user->role = 'student';
+        $user->name = $request->nama_depan;
+        $user->email = $request->email;
+        $user->password = bcrypt('123456');
+        $user->remember_token = str_random(60);
+        $user->save();
+        
+        // Insert ke Table Student
+        $request->request->add(['user_id' => $user->id]);
+        $student = \App\Models\Student::create($request->all());
+        
         return redirect('/student')->with('sukses', 'Data berhasil diinput');
     }
 

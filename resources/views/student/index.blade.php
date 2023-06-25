@@ -76,6 +76,10 @@
             <label for="inputLastName" class="form-label">Nama Belakang</label>
             <input type="text" name="nama_belakang" class="form-control" id="inputLastName" aria-describedby="emailHelp" placeholder="Nama Belakang">
           </div>
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Email">
+          </div>
           <div class="form-group">
             <label for="exampleFormControlSelect1">Pilih Jenis Kelamin</label>
             <select class="form-control" name="jenis_kelamin" id="exampleFormControlSelect1">
